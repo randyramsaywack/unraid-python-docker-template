@@ -1,29 +1,37 @@
-<?xml version="1.0"?>
-<Container version="2">
-  <Name></Name>
-  <Repository></Repository>
-  <Registry></Registry>
-  <Branch>
-    <Tag>latest</Tag>
-    <TagDescription></TagDescription>
-    <Repository></Repository>
-    <Registry></Registry>
-  </Branch>
-  <Shell>bash</Shell>
+<?xml version="1.0" encoding="utf-8"?>
+<Container>
+  <Name>NAME</Name>
+  <Description>DESC</Description>
+  <Registry>DOCKER_HUB</Registry>
+  <Repository>REPO</Repository>
+  <BindTime>true</BindTime>
   <Privileged>false</Privileged>
-  <Support></Support>
-  <Project></Project>
-  <Category></Category>
-  <TemplateURL>false</TemplateURL>
+  <Environment/>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>81</HostPort>
+        <ContainerPort>80</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/</HostDir>
+      <ContainerDir>/var/www/Pints</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/cache/appdata/pints/config</HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Version></Version>
+  <WebUI>http://[iP]:[PORT:80]/</WebUI>
+  <Banner></Banner>
   <Icon></Icon>
-  <Overview></Overview>
-  <Description/>
-  <MyIP/>
-  <WebUI>http://[IP]:[PORT:]</WebUI>
-  <ExtraParams/>
-  <PostArgs/>
-  <Network>bridge</Network>
-  <Config Name="Host Port" Target="PORT" Default="PORT" Mode="tcp" Description="Container Port: PORT" Type="Port" Display="always-hide" Required="true" Mask="false"/>
-  <Config Name="Host Path" Target="/path" Default="" Mode="rw" Description="Container Path: /path" Type="Path" Display="always-hide" Required="true" Mask="false"/>
-  <Config Name="Timezone" Target="TZ=America/New_York" Default="no|yes" Mode="" Description="Container Variable: Timezone" Type="Variable" Display="advanced-hide" Required="true" Mask="false"/>
+  <ExtraParams></ExtraParams>
 </Container>
